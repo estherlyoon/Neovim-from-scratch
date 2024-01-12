@@ -8,13 +8,13 @@ require "user.colorscheme"
 require "user.nvim-tree"
 require "user.cmp"
 require "user.lsp"
-require "user.autopairs"
+-- require "user.autopairs"
 require "user.comment"
 require "user.impatient"
 require "user.toggleterm"
 
 -- currently broken TODO
--- require "user.telescope"
+require "user.telescope"
 
 -- can be noisy sometimes
 -- require "user.gitsigns"

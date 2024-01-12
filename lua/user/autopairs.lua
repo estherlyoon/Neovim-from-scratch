@@ -15,6 +15,7 @@ npairs.setup {
     javascript = { "string", "template_string" },
     java = false,
   },
+  ignored_next_char = {},
   disable_filetype = { "TelescopePrompt", "spectre_panel" },
   fast_wrap = {
     map = "<M-e>",

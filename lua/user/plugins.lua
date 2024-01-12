@@ -57,6 +57,31 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" }
   use {"folke/which-key.nvim"}
 
+  -- ultimate-autopairs
+  use{
+    'altermo/ultimate-autopair.nvim',
+    event={'InsertEnter','CmdlineEnter'},
+    branch='v0.6',
+    config=function ()
+      require('ultimate-autopair').setup({
+                internal_pairs={
+                    {'[',']',fly=true,dosuround=true,newline=true,space=true},
+                    {'(',')',fly=true,dosuround=true,newline=true,space=true},
+                    {'{','}',fly=true,dosuround=true,newline=true,space=true},
+                    {'"','"',suround=true,multiline=false},
+                    {"'","'",suround=true,cond=function(fn) return not fn.in_lisp() or fn.in_string() end,alpha=true,nft={'tex'},multiline=false},
+                    {'`','`',cond=function(fn) return not fn.in_lisp() or fn.in_string() end,nft={'tex'},multiline=false},
+                    {'``',"''",ft={'tex'}},
+                    {'```','```',newline=true,ft={'markdown'}},
+                    {'<!--','-->',ft={'markdown','html'},space=true},
+                    {'"""','"""',newline=true,ft={'python'}},
+                    {"'''","'''",newline=true,ft={'python'}},
+                    {"/*", "*/", newline=true, ft={"cpp"}},
+                },
+            })
+    end,
+  }
+
   -- Colorschemes
   use { "ellisonleao/gruvbox.nvim" }
 
@@ -80,7 +105,7 @@ return packer.startup(function(use)
   use { "RRethy/vim-illuminate", commit = "d6ca7f77eeaf61b3e6ce9f0e5a978d606df44298" }
 
   -- Telescope
-  use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+  use { "nvim-telescope/telescope.nvim" }
 
   -- Treesitter
   use {
